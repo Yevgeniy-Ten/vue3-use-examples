@@ -1,9 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <router-link to="/" class="navbar-brand">VUE 3</router-link>
       <div class="navbar-nav">
-        <router-link v-for="route in routes" :to="route.name" :key="route.path" class="nav-link" active-class="active">
+        <router-link v-for="route in routes" :to="route.path" :key="route.path" class="nav-link"
+                     active-class="active">
           {{ route.name }}
         </router-link>
       </div>
@@ -18,7 +19,7 @@ export default {
   name: "Header",
   data() {
     return {
-      routes
+      routes: routes.filter(route => !route.path.includes(":"))
     }
   }
 }
